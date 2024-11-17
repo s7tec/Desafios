@@ -74,3 +74,52 @@ O número 8 não é primo.
 ```
 
 ---
+Vamos ao **Desafio 4**! Este desafio vai introduzir um conceito um pouco mais avançado: **manipulação de strings**.
+
+---
+
+### Desafio 4: Palíndromo Detector
+
+Escreva um programa que verifique se uma palavra ou frase é um **palíndromo**.  
+Um palíndromo é uma palavra, frase ou sequência que pode ser lida da mesma forma de trás para frente, ignorando espaços, pontuação e diferenças entre maiúsculas e minúsculas.
+
+**Requisitos**:
+1. Solicite ao usuário uma palavra ou frase.
+2. Remova os espaços e caracteres especiais, considerando apenas letras e números.
+3. Verifique se o texto é igual de trás para frente.
+4. Informe o resultado ao usuário:
+   - Exemplo de saída para um palíndromo:  
+     `"A mãe te ama" é um palíndromo.`
+   - Exemplo de saída para um não-palíndromo:  
+     `"Python é incrível" não é um palíndromo.`
+
+**Dicas**:
+- Use métodos de strings, como `.lower()` para tratar letras maiúsculas/minúsculas.
+- Para remover espaços e caracteres especiais, utilize `replace()` ou uma compreensão de lista.
+- Use slicing (`[::-1]`) para inverter a string.
+
+---
+
+**Exemplo de Fluxo**:
+
+Entrada:
+```
+Digite uma palavra ou frase: A sacada da casa
+```
+
+Saída:
+```
+"A sacada da casa" é um palíndromo.
+```
+
+Entrada:
+```
+Digite uma palavra ou frase: Python
+```
+
+Saída:
+```
+"Python" não é um palíndromo.
+```
+
+---

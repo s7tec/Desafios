@@ -12,7 +12,6 @@ Dicas:
 - Use print() para exibir os resultados.
 
 ### Desafio 2: Conversor de Temperaturas
-
 Escreva um programa em Python que converta uma temperatura dada em graus Celsius para Fahrenheit e Kelvin.
 
 **Requisitos**:
@@ -36,3 +35,50 @@ Temperatura em Kelvin: 298.15 K
 ---
 
 Após resolver, envie o código e eu darei o feedback!
+
+Vamos ao **Desafio 3**!
+
+---
+
+### Desafio 3: Verificador de Números Primos
+Escreva um programa em Python que determine se um número fornecido pelo usuário é primo.
+
+**Requisitos**:
+1. Solicite ao usuário um número inteiro positivo.
+2. Verifique se o número é primo. Um número é considerado primo se for maior que 1 e divisível apenas por 1 e ele mesmo.
+3. Informe o resultado ao usuário:
+   - Exemplo de saída para um número primo:  
+     `O número 7 é primo.`
+   - Exemplo de saída para um número não primo:  
+     `O número 8 não é primo.`
+
+**Dicas**:
+- Utilize um laço de repetição para verificar os divisores do número.
+- Considere usar a função `range(2, número)` para verificar se o número tem divisores além de 1 e ele mesmo.
+- Caso o usuário digite um número inválido (como um número negativo ou caractere não numérico), mostre uma mensagem de erro e peça para ele tentar novamente.
+
+---
+
+**Exemplo de Fluxo**:
+
+Entrada:
+```
+Digite um número inteiro positivo: 7
+```
+
+Saída:
+```
+O número 7 é primo.
+```
+
+Entrada:
+```
+Digite um número inteiro positivo: 8
+```
+
+Saída:
+```
+O número 8 não é primo.
+```
+
+---

@@ -32,14 +32,6 @@ Temperatura em Kelvin: 298.15 K
 - Use `float` para garantir que a entrada e o resultado possam ter casas decimais.
 - Formate a saída para duas casas decimais para uma exibição mais precisa (como `77.00` e `298.15`).
 
----
-
-Após resolver, envie o código e eu darei o feedback!
-
-Vamos ao **Desafio 3**!
-
----
-
 ### Desafio 3: Verificador de Números Primos
 Escreva um programa em Python que determine se um número fornecido pelo usuário é primo.
 

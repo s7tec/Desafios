@@ -31,3 +31,72 @@ Excelente trabalho! Seu código está bem escrito e executa a conversão correta
    - Depois de exibir `"Erro: Você deve apenas digitar apenas numeros"`, você pode parar a execução usando `exit()` ou um `return` para que o programa termine logo após a mensagem de erro, evitando seguir para os cálculos.
 
 No geral, o código atende bem ao objetivo do desafio! Se quiser que eu te passe o próximo, só avisar!
+
+## Feedback Desafio 3
+Você está no caminho certo e a maior parte do seu código está funcional! No entanto, há um problema no fluxo lógico que faz com que a mensagem de "primo" seja exibida mesmo para números não primos, dependendo de como o loop `for` é executado. Aqui vai o feedback detalhado:
+
+---
+
+### Pontos Positivos:
+1. **Verificação Inicial**:
+   - Você tratou os casos em que o número é menor ou igual a 1, bem como os números 2 e 3 separadamente, o que é eficiente e correto.
+
+2. **Uso da Raiz Quadrada**:
+   - Limitar o loop até a raiz quadrada de `num` com `int(num**0.5) + 1` é uma ótima otimização para verificar a primalidade.
+
+3. **Conceito do `for`**:
+   - Usar um `for` para checar divisores é correto, mas falta uma pequena correção na forma como o fluxo decide se o número é primo.
+
+---
+
+### Ajustes Necessários:
+1. **Erro na Lógica do `for`**:
+   - O `else` do `for` está sendo executado para todos os casos onde o loop termina sem interrupção, mas isso não reflete se um número é primo corretamente. 
+   - Para corrigir, você pode usar uma variável (ex.: `é_primo`) para rastrear se o número é primo.
+
+2. **Melhoria na Saída**:
+   - Caso o número seja detectado como não primo dentro do `for`, o programa imprime a mensagem de "não primo" várias vezes (uma para cada divisor encontrado). Isso pode ser ajustado para exibir a mensagem apenas uma vez.
+
+---
+
+### Versão Ajustada:
+
+Aqui está uma abordagem corrigida com as suas ideias:
+
+```python
+print("Verificador de números 'Primos'")
+print("__________________________________________________")
+
+num = int(input('Digite um número: '))
+
+if num <= 1:
+    print(f"O número {num} não é primo")
+
+elif num <= 3:
+    print(f"O número {num} é primo")
+
+elif num % 2 == 0:
+    print(f"O número {num} não é primo")
+
+else:
+    é_primo = True  # Assume que o número é primo
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            é_primo = False
+            break  # Interrompe o loop assim que encontra um divisor
+
+    if é_primo:
+        print(f"O número {num} é primo")
+    else:
+        print(f"O número {num} não é primo")
+```
+
+---
+
+### Pontos para Reflexão:
+1. **Por que usar `break`?**  
+   Interromper o loop assim que encontramos um divisor economiza processamento, especialmente para números grandes.
+
+2. **Mensagens de Saída Duplicadas**:  
+   No seu código original, o `else` do `for` foi executado independentemente de o número ser primo ou não. Essa é uma armadilha comum, porque o `else` do `for` em Python executa somente se o loop não for interrompido por um `break`.
+---

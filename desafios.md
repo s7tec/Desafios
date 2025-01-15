@@ -123,3 +123,53 @@ Saída:
 ```
 
 ---
+
+### Desafio 5: Contador de Palavras
+
+Escreva um programa que conte o número total de palavras em uma frase fornecida pelo usuário e identifique a palavra que aparece mais vezes. Caso todas as palavras tenham a mesma frequência, informe isso também.
+
+---
+
+**Requisitos**:
+1. Solicite ao usuário que insira uma frase.
+2. Conte quantas palavras existem na frase.
+3. Identifique qual palavra aparece mais vezes ou informe que todas aparecem apenas uma vez.
+4. Exiba os resultados de forma clara.
+
+---
+
+**Exemplo de Fluxo**:
+
+Entrada:
+```
+Digite uma frase: O rato roeu a roupa do rei de Roma
+```
+
+Saída:
+```
+Número total de palavras: 9
+Todas as palavras aparecem apenas uma vez.
+```
+
+---
+
+Entrada:
+```
+Digite uma frase: A casa é azul, e a casa é bonita
+```
+
+Saída:
+```
+Número total de palavras: 9
+A palavra que mais aparece é "casa", com 2 ocorrências.
+```
+
+---
+
+**Dicas**:
+1. Use o método `.split()` para separar as palavras da frase.
+2. Normalize as palavras (converta para minúsculas e remova pontuações) para evitar contagens inconsistentes.
+3. Use um dicionário para contar as ocorrências de cada palavra.
+4. Utilize `max()` para encontrar a palavra mais frequente no dicionário.
+
+---

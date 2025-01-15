@@ -100,3 +100,66 @@ else:
 2. **Mensagens de Saída Duplicadas**:  
    No seu código original, o `else` do `for` foi executado independentemente de o número ser primo ou não. Essa é uma armadilha comum, porque o `else` do `for` em Python executa somente se o loop não for interrompido por um `break`.
 ---
+## Feedback Desafio 4
+Ótimo trabalho em buscar aprender mais com fontes externas! O código está funcional e verifica corretamente se uma palavra ou frase é um palíndromo. Aqui está o feedback detalhado, com sugestões de melhoria:
+
+---
+
+### Pontos Positivos:
+1. **Uso do `casefold()`**:
+   - Boa escolha! `casefold()` é ideal para lidar com comparações de strings ignorando diferenças de maiúsculas e minúsculas, especialmente em línguas com caracteres especiais.
+
+2. **Lógica Geral**:
+   - A abordagem de comparar a string com sua versão invertida é eficiente e funciona bem para palíndromos.
+
+3. **Mensagens ao Usuário**:
+   - Você incluiu mensagens claras para indicar se a string é ou não um palíndromo. Ótimo para usabilidade!
+
+---
+
+### Ajustes e Melhorias:
+1. **Limpeza de Caracteres Especiais e Espaços**:
+   - Atualmente, o código não ignora espaços e caracteres especiais. Para que frases como `"A sacada da casa"` sejam reconhecidas como palíndromos, você pode limpar a string antes da verificação:
+     ```python
+     import re
+     string = re.sub(r'[^a-zA-Z0-9]', '', string)
+     ```
+     Isso removerá tudo que não for letra ou número.
+
+2. **Comparação Mais Direta**:
+   - Você converte a string invertida para uma lista antes da comparação. Isso funciona, mas não é necessário. Você pode comparar diretamente a string com sua versão invertida usando slicing:
+     ```python
+     if string == string[::-1]:
+     ```
+
+3. **Melhoria nas Mensagens**:
+   - Seria interessante incluir a string original na mensagem, para dar mais contexto ao usuário. Por exemplo:
+     ```python
+     print(f'"{string}" é um palíndromo.')
+     ```
+
+4. **Erros de Digitação**:
+   - A palavra "palíndromo" está com erro de digitação nas mensagens. Corrigir isso deixará o código mais polido.
+
+---
+
+### Versão Melhorada:
+Com as sugestões acima implementadas, o código pode ficar assim:
+
+```python
+import re
+
+print("Digite uma palavra ou uma frase para verificar se é um palíndromo:")
+string = input("- ")
+
+# Normaliza a string (ignora espaços, pontuação e diferenciação de maiúsculas/minúsculas)
+string = re.sub(r'[^a-zA-Z0-9]', '', string).casefold()
+
+# Verifica se a string é igual ao seu reverso
+if string == string[::-1]:
+    print("A string é um palíndromo.")
+else:
+    print("A string não é um palíndromo.")
+```
+
+---

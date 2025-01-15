@@ -163,3 +163,96 @@ else:
 ```
 
 ---
+Parabéns por concluir o desafio! 🎉 Vamos ao feedback e explicação detalhada da contagem de palavras e ocorrências no seu código.
+
+---
+
+### Como funciona o código:
+1. **Entrada do Usuário**:
+   - O programa pede que o usuário digite uma frase.
+
+2. **Normalização da Frase**:
+   - O método `.casefold()` transforma toda a frase em letras minúsculas, garantindo que palavras como "Casa" e "casa" sejam tratadas da mesma forma.
+   - Exemplo: `"Olá Mundo Mundo"` vira `"olá mundo mundo"`.
+
+3. **Divisão da Frase em Palavras**:
+   - O método `.split()` separa as palavras da frase usando os espaços como delimitadores.
+   - Exemplo: `"olá mundo mundo"` vira `["olá", "mundo", "mundo"]`.
+
+4. **Contagem das Palavras**:
+   - Um dicionário `contagem` é usado para armazenar cada palavra como chave e o número de vezes que aparece como valor.
+   - Para cada palavra da lista:
+     - Se a palavra já está no dicionário, o valor dela é incrementado em 1 (`contagem[palavra] += 1`).
+     - Caso contrário, a palavra é adicionada ao dicionário com valor inicial 1 (`contagem[palavra] = 1`).
+   - Resultado final do dicionário:
+     - Para `["olá", "mundo", "mundo"]`, o dicionário será:  
+       `{"olá": 1, "mundo": 2}`.
+
+5. **Palavra Mais Frequente**:
+   - O `max(contagem, key=contagem.get)` encontra a chave (palavra) com o maior valor (frequência) no dicionário.
+   - Exemplo: `max({"olá": 1, "mundo": 2}, key=contagem.get)` retorna `"mundo"`, pois `2` é o maior valor.
+
+6. **Saída Final**:
+   - O programa exibe qual palavra aparece mais vezes e sua contagem.
+   - Além disso, o programa mostra a lista de palavras, o que ajuda a entender como a frase foi processada.
+
+---
+
+### Exemplo com Explicação:
+**Entrada**:
+```
+Digite uma frase: O rato roeu a roupa do rei de Roma
+```
+
+**Processo**:
+- Normalização: `"o rato roeu a roupa do rei de roma"`
+- Divisão em palavras: `["o", "rato", "roeu", "a", "roupa", "do", "rei", "de", "roma"]`
+- Contagem:
+  ```python
+  {
+      "o": 1,
+      "rato": 1,
+      "roeu": 1,
+      "a": 1,
+      "roupa": 1,
+      "do": 1,
+      "rei": 1,
+      "de": 1,
+      "roma": 1
+  }
+  ```
+- A palavra mais frequente: **Todas têm frequência 1**.
+
+**Saída**:
+```
+A palavra mais frequente é 'o', com 1 ocorrência.
+```
+
+---
+
+### O que poderia melhorar:
+1. **Tratar Pontuações**:
+   - Se a frase tiver pontuações, como `"o rato roeu a roupa do rei."`, o programa não reconhecerá `"rei."` como `"rei"`. 
+   - Solução: Use `re` para remover pontuações antes de contar.
+
+   ```python
+   import re
+   frase = re.sub(r'[^\w\s]', '', frase)
+   ```
+
+2. **Empate de Frequências**:
+   - Caso mais de uma palavra tenha a mesma maior frequência, informe isso ao usuário.
+
+   ```python
+   frequencia_maxima = max(contagem.values())
+   palavras_frequentes = [palavra for palavra, freq in contagem.items() if freq == frequencia_maxima]
+   ```
+
+3. **Exibir Total de Palavras**:
+   - Mostre ao usuário o número total de palavras na frase.
+
+   ```python
+   print(f"Número total de palavras: {cont_palavras}")
+   ```
+
+---
